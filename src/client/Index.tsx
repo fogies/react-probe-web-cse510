@@ -16,6 +16,10 @@ import {
     Toolbar,
 } from '@material-ui/core';
 
+import {
+    StylesProvider
+} from '@material-ui/core/styles';
+
 import { MDXProvider } from '@mdx-js/react';
 import commonMDXComponents from '../common/MDXComponents';
 
@@ -23,7 +27,9 @@ import { StoreProvider } from '../stores/AppStoreProvider';
 
 import theme from './Theme'
 
-import ToolbarButton from 'src/common/ToolbarButton';
+import ToolbarButton from '../common/ToolbarButton';
+
+import DefaultLayout from './DefaultLayout';
 
 import Home from '../pages/Home.mdx';
 import Assignments from '../pages/Assignments.mdx';
@@ -35,37 +41,41 @@ const createUi = () => {
     return (
         <StoreProvider>
             <ThemeProvider theme={theme}>
-                <CssBaseline/>
-                <MDXProvider components={commonMDXComponents}>
-                    <Router>
-                        <AppBar position="static">
+                <StylesProvider injectFirst>
+                    <CssBaseline/>
+                    <MDXProvider components={commonMDXComponents}>
+                        <Router>
+                            <AppBar position="static">
+                                <Container>
+                                    <Toolbar disableGutters>
+                                        <Box display="flex" flexDirection="row" width="100%">
+                                            <ToolbarButton to="/">CSE 510 - Advanced Topics in HCI - Winter 2020</ToolbarButton>
+                                            <Box flexGrow={1} />
+                                            <ToolbarButton to="/assignments">Assignments</ToolbarButton>
+                                            <ToolbarButton to="/calendar">Calendar</ToolbarButton>
+                                        </Box>
+                                    </Toolbar>
+                                </Container>
+                            </AppBar>
                             <Container>
-                                <Toolbar disableGutters>
-                                    <Box display="flex" flexDirection="row" width="100%">
-                                        <ToolbarButton to="/">CSE 510 - Advanced Topics in HCI - Winter 2020</ToolbarButton>
-                                        <Box flexGrow={1} />
-                                        <ToolbarButton to="/assignments">Assignments</ToolbarButton>
-                                        <ToolbarButton to="/calendar">Calendar</ToolbarButton>
-                                    </Box>
-                                </Toolbar>
+                                <DefaultLayout>
+                                    { /* TODO React Router v6 for Routes Component */ }
+                                    <Switch>
+                                        <Route exact path="/">
+                                            <Home />
+                                        </Route>
+                                        <Route path="/assignments">
+                                            <Assignments />
+                                        </Route>
+                                        <Route path="/calendar">
+                                            <Calendar />
+                                        </Route>
+                                    </Switch>
+                                </DefaultLayout>
                             </Container>
-                        </AppBar>
-                        <Container>
-                            { /* TODO React Router v6 for Routes Component */ }
-                            <Switch>
-                                <Route exact path="/">
-                                    <Home />
-                                </Route>
-                                <Route path="/assignments">
-                                    <Assignments />
-                                </Route>
-                                <Route path="/calendar">
-                                    <Calendar />
-                                </Route>
-                            </Switch>
-                        </Container>
-                    </Router>
-                </MDXProvider>
+                        </Router>
+                    </MDXProvider>
+                </StylesProvider>
             </ThemeProvider>
         </StoreProvider>
     );
