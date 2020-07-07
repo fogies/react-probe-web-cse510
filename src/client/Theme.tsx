@@ -1,5 +1,9 @@
 import { createMuiTheme } from "@material-ui/core";
 
+// Useful for the future:
+//
+// https://stackoverflow.com/questions/57630926/material-ui-theme-overrides-leveraging-theme-palette-colors
+
 const theme = createMuiTheme({
     // A purple and green taken from the DUB branding
     palette: {
