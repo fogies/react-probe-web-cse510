@@ -6,7 +6,7 @@ import { Reading } from '../types/Reading';
 import FormattedReading from './FormattedReading';
 import GeneratedLink from '../common/GeneratedLink';
 
-import { useStore } from '../stores/AppStoreProvider';
+import { useAppStore } from '../stores/AppStoreProvider';
 import { CourseInformationStore } from "../stores/CourseInformationStore";
 
 /**
@@ -20,7 +20,7 @@ interface CourseInformationAssignmentDateProps {
  * Render a named assignment date from the course information.
  */
 export const CourseInformationAssignmentDate: FunctionComponent<CourseInformationAssignmentDateProps> = (props) => {
-    const store = useStore();
+    const store = useAppStore();
 
     // Check this because TypeScript doesn't ensure in MDX files
     if (props.assignmentDateName in store.courseInformation === false) {
@@ -50,7 +50,7 @@ interface CourseInformationFormattedReadingProps {
  * Render a named Reading from the course information.
  */
 export const CourseInformationFormattedReading: FunctionComponent<CourseInformationFormattedReadingProps> = (props) => {
-    const store = useStore();
+    const store = useAppStore();
 
     // Check this because TypeScript doesn't ensure in MDX files
     if (props.readingName in store.courseInformation === false) {
@@ -76,7 +76,7 @@ interface CourseInformationLinkProps {
  * Render a named link from the course information.
  */
 export const CourseInformationLink: FunctionComponent<CourseInformationLinkProps> = (props) => {
-    const store = useStore();
+    const store = useAppStore();
 
     // Check this because TypeScript doesn't ensure in MDX files
     if (props.linkName in store.courseInformation === false) {

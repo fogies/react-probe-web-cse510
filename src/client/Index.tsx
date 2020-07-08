@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
 import {
-    BrowserRouter as Router,
+    Router,
     Route,
     Switch,
 } from 'react-router-dom';
@@ -23,8 +23,6 @@ import {
 import { MDXProvider } from '@mdx-js/react';
 import commonMDXComponents from '../common/MDXComponents';
 
-import { StoreProvider } from '../stores/AppStoreProvider';
-
 import theme from './Theme'
 
 import ToolbarButton from '../common/ToolbarButton';
@@ -35,16 +33,21 @@ import Home from '../pages/Home.mdx';
 import Assignments from '../pages/Assignments.mdx';
 import Calendar from '../pages/Calendar.mdx';
 
+import { AppStore, createAppStore } from "../stores/AppStore";
+import { AppStoreProvider } from '../stores/AppStoreProvider';
+
 declare let module: any;
+
+const appStore: AppStore = createAppStore();
 
 const createUi = () => {
     return (
-        <StoreProvider>
+        <AppStoreProvider>
             <ThemeProvider theme={theme}>
                 <StylesProvider injectFirst>
                     <CssBaseline/>
                     <MDXProvider components={commonMDXComponents}>
-                        <Router>
+                        <Router history={appStore.routerStore.history}>
                             <AppBar position="static">
                                 <Container>
                                     <Toolbar disableGutters>
@@ -77,7 +80,7 @@ const createUi = () => {
                     </MDXProvider>
                 </StylesProvider>
             </ThemeProvider>
-        </StoreProvider>
+        </AppStoreProvider>
     );
 };
 

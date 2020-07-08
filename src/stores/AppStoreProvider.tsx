@@ -4,30 +4,25 @@
 
 import * as React from 'react';
 import { useLocalStore } from "mobx-react-lite";
-
-import { AppStore, AppStoreImpl } from './AppStore';
-
-function createStore() {
-    return new AppStoreImpl();
-}
+import { AppStore, getAppStore } from './AppStore';
 
 const storeContext = React.createContext<AppStore | null>(null);
 
-export interface StoreProviderProps {
+export interface AppStoreProviderProps {
     children: React.ReactElement;
 }
 
-export const StoreProvider = ({children}: StoreProviderProps): React.ReactElement => {
-    const store = useLocalStore(createStore);
+export const AppStoreProvider = ({children}: AppStoreProviderProps): React.ReactElement => {
+    const store = useLocalStore(getAppStore);
 
     return <storeContext.Provider value={store}>{children}</storeContext.Provider>;
 }
 
-export const useStore = () => {
+export const useAppStore = () => {
     const store = React.useContext(storeContext);
 
     if(!store) {
-        throw new Error('useStore must be called within a StoreProvider.');
+        throw new Error('useAppStore must be called within an AppStoreProvider.');
     }
 
     return store;
