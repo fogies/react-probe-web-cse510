@@ -9,7 +9,7 @@ import Alert from '@material-ui/lab/Alert';
 
 import { CourseInformationLink } from '../components/CourseInformation';
 import { FormattedReading } from '../components/FormattedReading';
-import { useStore } from '../stores/AppStoreProvider';
+import { useAppStore } from '../stores/AppStoreProvider';
 import { CalendarDate } from '../stores/CourseCalendarStore';
 import GeneratedLink from "src/common/GeneratedLink";
 
@@ -80,7 +80,7 @@ function renderContent(calendarDateCurrent: CalendarDate) {
 }
 
 export const CourseCalendar: FunctionComponent = () => {
-    const store = useStore();
+    const store = useAppStore();
 
     return (
         <Grid container>
