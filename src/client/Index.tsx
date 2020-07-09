@@ -25,7 +25,7 @@ import commonMDXComponents from '../common/MDXComponents';
 
 import theme from './Theme'
 
-import ToolbarButton from '../common/ToolbarButton';
+import { NavButton } from '../common/NavButton';
 
 import DefaultLayout from './DefaultLayout';
 
@@ -52,10 +52,10 @@ const createUi = () => {
                                 <Container>
                                     <Toolbar disableGutters>
                                         <Box display="flex" flexDirection="row" width="100%">
-                                            <ToolbarButton to="/">CSE 510 - Advanced Topics in HCI - Winter 2020</ToolbarButton>
+                                            <NavButton to="/" match="never">CSE 510 - Advanced Topics in HCI - Winter 2020</NavButton>
                                             <Box flexGrow={1} />
-                                            <ToolbarButton to="/assignments">Assignments</ToolbarButton>
-                                            <ToolbarButton to="/calendar">Calendar</ToolbarButton>
+                                            <NavButton to="/assignments">Assignments</NavButton>
+                                            <NavButton to="/calendar">Calendar</NavButton>
                                         </Box>
                                     </Toolbar>
                                 </Container>
