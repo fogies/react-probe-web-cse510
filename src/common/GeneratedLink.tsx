@@ -6,7 +6,7 @@ import { Link as RouterLink } from 'react-router-dom';
 
 interface GeneratedLinkProps {
     href: string,
-    linkType?: 'auto' | 'internal' | 'external' | 'file'
+    linkType?: 'auto' | 'internal' | 'external' | 'file',
 }
 
 export const GeneratedLink: FunctionComponent<GeneratedLinkProps> = (props) => {

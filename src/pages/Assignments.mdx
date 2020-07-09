@@ -5,6 +5,7 @@ import {
 
 import {
     Box,
+    ButtonGroup,
     Grid,
     Paper
 } from '@material-ui/core'
@@ -13,16 +14,16 @@ import {
     GeneratedLink as Link
 } from '../common/GeneratedLink'
 
+import { NavButton } from "../common/NavButton"
+
 import Overview from "../content/assignments/Overview.mdx"
 import Readings from "../content/assignments/Readings.mdx"
 import Project from "../content/assignments/Project.mdx"
 import StatisticsLab from "../content/assignments/StatisticsLab.mdx"
 import Exam from "../content/assignments/Exam.mdx"
 
-# Assignments
-
 <Grid container spacing={2}>
-    <Grid item xs={9}>
+    <Grid item xs={10}>
         { /* TODO React Router v6 for Routes Component */ }
         <Switch>
             <Route exact path="/assignments">
@@ -42,13 +43,15 @@ import Exam from "../content/assignments/Exam.mdx"
             </Route>
         </Switch>
     </Grid>
-    <Grid item xs={3}>
-        { /* TODO Need a better way to present this secondary hierarchy */ }
-        <p><Link href="/assignments">Overview</Link></p>
-        <p><Link href="/assignments/readings">Readings</Link></p>
-        <p><Link href="/assignments/project">Project</Link></p>
-        <p><Link href="/assignments/statisticslab">Statistics Lab</Link></p>
-        <p><Link href="/assignments/exam">Exam</Link></p>
+    <Grid item xs={2}>
+        { /* TODO Clean up secondary hierarchy, add an outline */ }
+        <ButtonGroup orientation="vertical" color="primary" style={{width: "100%"}}>
+            <NavButton to="/assignments" match="equals">Overview</NavButton>
+            <NavButton to="/assignments/readings">Readings</NavButton>
+            <NavButton to="/assignments/project">Project</NavButton>
+            <NavButton to="/assignments/statisticslab">Statistics Lab</NavButton>
+            <NavButton to="/assignments/exam">Exam</NavButton>
+        </ButtonGroup>
     </Grid>
 </Grid>
 
