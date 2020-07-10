@@ -51,7 +51,7 @@ const createUi = () => {
                             <AppBar position="static">
                                 <Container>
                                     <Toolbar disableGutters>
-                                        <Box display="flex" flexDirection="row" width="100%">
+                                        <Box display="flex" flexDirection="row" width="100%" role="navigation" aria-label="Main Links">
                                             <NavButton to="/" match="never">CSE 510 - Advanced Topics in HCI - Winter 2020</NavButton>
                                             <Box flexGrow={1} />
                                             <NavButton to="/assignments">Assignments</NavButton>

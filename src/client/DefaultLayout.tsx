@@ -67,7 +67,7 @@ interface Props extends WithStyles<typeof styles> {
 const DefaultLayout = withStyles(styles)(({classes, ...props}: Props) => (
     <Paper className={classes.classPaper}>
         <Box className={classes.classOuterBox}>
-            <Box className={classes.classInnerBox}>
+            <Box className={classes.classInnerBox} role="main">
                 {props.children}
             </Box>
         </Box>
