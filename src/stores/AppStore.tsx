@@ -1,4 +1,4 @@
-import { autorun, observable } from 'mobx';
+import { observable } from 'mobx';
 
 import { CourseCalendarStore } from './CourseCalendarStore';
 import { CourseInformationStore } from './CourseInformationStore';
@@ -27,11 +27,6 @@ class AppStoreImpl implements AppStore {
         const routerStore = new RouterStore();
         syncHistoryWithStore(browserHistory, routerStore);
         this.routerStore = routerStore;
-
-        // Debugging that router path is available
-        autorun(() => {
-            console.log(this.routerStore.location.pathname);
-        });
     }
 }
 
