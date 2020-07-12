@@ -37,6 +37,10 @@ A probe in implementing a React-based website, to inform and eventually become a
 
   - <https://reactjs.org/>
 
+- react-snap: For pre-rendering application to be served as static files.
+
+  - <https://github.com/stereobooster/react-snap>
+
 - TypeScript: For compile-time type checking.
 
   - <https://www.typescriptlang.org/>

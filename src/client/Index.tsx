@@ -84,7 +84,12 @@ const createUi = () => {
     );
 };
 
-ReactDOM.render(createUi(), document.getElementById('root'));
+const rootElement = document.getElementById("root") as HTMLElement;
+if (rootElement.hasChildNodes()) {
+  ReactDOM.hydrate(createUi(), rootElement);
+} else {
+  ReactDOM.render(createUi(), rootElement);
+}
 
 if (module.hot) {
     module.hot.accept();
