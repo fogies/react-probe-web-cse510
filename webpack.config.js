@@ -3,7 +3,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const rendererOptimization = {
     splitChunks: {
@@ -24,14 +24,14 @@ const rendererOptimization = {
     ]
 };
 
-const extractAppCssPlugin = new MiniCssExtractPlugin({
-    filename: '[name].min.css'
-});
+// const extractAppCssPlugin = new MiniCssExtractPlugin({
+//     filename: '[name].min.css'
+// });
 
 module.exports = {
     mode: 'development',
     entry: {
-        app: ['./src/client/Index.tsx', 'webpack-hot-middleware/client']
+        app: ['./src/client/Index.tsx'/*, 'webpack-hot-middleware/client'*/]
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -87,7 +87,7 @@ module.exports = {
         ]
     },
     plugins: [
-        extractAppCssPlugin,
+        // extractAppCssPlugin,
         new HtmlWebpackPlugin({ template: path.resolve(__dirname, 'src', 'client', 'index.html') }),
         new webpack.HotModuleReplacementPlugin()
     ],

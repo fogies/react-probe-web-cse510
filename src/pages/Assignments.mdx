@@ -45,13 +45,15 @@ import Exam from "../content/assignments/Exam.mdx"
     </Grid>
     <Grid item xs={2}>
         { /* TODO Clean up secondary hierarchy, add an outline */ }
-        <ButtonGroup orientation="vertical" color="primary" style={{width: "100%"}}>
-            <NavButton to="/assignments" match="equals">Overview</NavButton>
-            <NavButton to="/assignments/readings">Readings</NavButton>
-            <NavButton to="/assignments/project">Project</NavButton>
-            <NavButton to="/assignments/statisticslab">Statistics Lab</NavButton>
-            <NavButton to="/assignments/exam">Exam</NavButton>
-        </ButtonGroup>
+        <Box role="navigation" aria-label="Assignments Links">
+            <ButtonGroup orientation="vertical" color="primary" style={{width: "100%"}}>
+                <NavButton to="/assignments" match="equals">Overview</NavButton>
+                <NavButton to="/assignments/readings">Readings</NavButton>
+                <NavButton to="/assignments/project">Project</NavButton>
+                <NavButton to="/assignments/statisticslab">Statistics Lab</NavButton>
+                <NavButton to="/assignments/exam">Exam</NavButton>
+            </ButtonGroup>
+        </Box>
     </Grid>
 </Grid>
 

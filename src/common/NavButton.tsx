@@ -16,6 +16,7 @@ import {
     Link as RouterLink,
 } from "react-router-dom";
 
+// Imports for accessing store
 import { observer } from "mobx-react-lite";
 import { useAppStore } from "../stores/AppStoreProvider";
 
