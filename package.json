@@ -14,7 +14,7 @@
     "dependencies": {
         "@material-ui/core": "^4.10.1",
         "@material-ui/lab": "^4.0.0-alpha.56",
-        "luxon": "^1.24.1",
+        "luxon": "^1.28.1",
         "mobx": "^5.15.4",
         "mobx-react-lite": "^2.0.7",
         "mobx-react-router": "^4.1.0",
